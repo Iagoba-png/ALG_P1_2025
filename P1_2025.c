@@ -10,9 +10,9 @@
 typedef int (*sumaSubMax) (int v[], int n); //puntero a las funciones sumaSubMax
 
 void inicializar_semilla();
-void imprimirVector(int v[], int n);
-int suma1(int v[], int n);
-int suma2(int v[], int n);
+void listar_vector(int v[], int n);
+int sumaSubMax1(int v[], int n);
+int sumaSubMax2(int v[], int n);
 void test1();
 void test2();
 void mostrarResultado(int v[], int n);
@@ -49,7 +49,7 @@ void aleatorio(int v [], int n) {
         v[i] = (rand() % m) - n;
 
 }
-int suma1(int v[], int n){
+int sumaSubMax1(int v[], int n){
     //algoritmo 1 que calcula la suma de la subsecuencia máxima
     int estaSuma, sumaMax = 0;
     int i, j;
@@ -57,14 +57,14 @@ int suma1(int v[], int n){
     for( i = 0; i < n; i++){
         estaSuma = 0;
         for(j = i; j < n; j++){
-            estaSuma += v[j];i
+            estaSuma += v[j];
             if(estaSuma > sumaMax)
                 sumaMax = estaSuma;
         }
     }
     return sumaMax;
 }
-int suma2(int v[], int n){
+int sumaSubMax2(int v[], int n){
     //algoritmo 2 que calcula la suma de la subsecuencia máxima
     int estaSuma, sumaMax, j;
 
@@ -81,7 +81,7 @@ int suma2(int v[], int n){
     }
     return sumaMax;
 }
-void imprimirVector(int v[], int n){
+void listar_vector(int v[], int n){
     //muestra el vector v por pantalla
     int i;
 
