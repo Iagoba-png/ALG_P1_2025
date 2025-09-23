@@ -2,8 +2,8 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <time.h>
-#include <math.h>
 #include <stdbool.h>
+#include <math.h>
 
 #define K 100 //numero de repeticiones del algoritmo en caso de que no supere umbral de confianza
 
@@ -21,6 +21,14 @@ double microsegundos();
 double calcularTiempo(int n, bool *bucle, sumaSubMax funcion);
 void showTime1();
 void showTime2();
+
+double potencia(double base, float exponente) {
+    double resultado = 1.0;
+    for(float i = 0; i < exponente; i++) {
+        resultado *= base;
+    }
+    return resultado;
+}
 
 int main() {
     int n;
@@ -183,9 +191,9 @@ void showTime1(){
     for(n = 500; n <= 32000; n = 2 * n){
         t = calcularTiempo(n,&repeat,sumaSubMax1);
         //cálculo de relación tiempo/cotas
-        cotainf = t / pow((double) n, 1.8);
-        cota = t / pow((double) n, 2);
-        cotasob = t / pow((double) n, 2.2);
+        cotainf = t / potencia((double) n, 1.8);
+        cota = t / potencia((double) n, 2);
+        cotasob = t / potencia((double) n, 2.2);
         if(repeat == true){ //mostramos (*) si los tiempos no superan el umbral de confianza
             printf("(*)%27d%30.3lf%30lf%30lf%30lf\n", n, t, cotainf, cota, cotasob);
         } else{
@@ -204,9 +212,9 @@ void showTime2(){
     for(n = 500; n <= 256000; n = 2 * n){
         t = calcularTiempo(n,&repeat,sumaSubMax2);
         //cálculo de relación tiempo/cotas
-        cotainf = t / pow((double) n, 0.8);
+        cotainf = t / potencia((double) n, 0.8);
         cota = t / (double) n;
-        cotasob = t / pow((double) n, 1.2);
+        cotasob = t / potencia((double) n, 1.2);
         if(repeat == true){ //mostramos (*) si los tiempos no superan el umbral de confianza
             printf("(*)%27d%30.3lf%30lf%30lf%30lf\n", n, t, cotainf, cota, cotasob);
         } else{
