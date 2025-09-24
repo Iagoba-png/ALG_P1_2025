@@ -187,7 +187,7 @@ void showTime2(){
     bool repeat;
 
     printf("SumaSubMax 2\n");
-    printf("%30s%30s%30s%30s%30s\n","n","t(n)","t(n)/n^0.8","t(n)/n^1","t(n)/n^1.2");
+    printf("%30s%30s%30s%30s%30s\n","n","t(n)","t(n)/n^0.8","t(n)/n^1","t(n)/n*log(n)");
     for(n = 500; n <= 256000; n = 2 * n){
         t = calcularTiempo(n,&repeat,sumaSubMax2);
         //cálculo de relación tiempo/cotas
