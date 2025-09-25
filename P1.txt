@@ -66,17 +66,23 @@ La cota ajustada se mantiene relativamente constante en 0.0029
 
 Para el segundo algoritmo SumaSubMax2, hemos realizado el mismo procedimiento, sacamos las funciones de las cotas, calculamos tiempos y comparamos.
 En este caso hemos utilizado: la función f(n) = t(n)/n para la cota ajustada; la función f(n) = t(n)/n^0.8 para la cota subestimada;
-y la función f(n) = t(n)/n^1.2 para cota sobreestimada.
+y la función f(n) = t(n)/n*log(n) para cota sobreestimada.
 
 SumaSubMax 2
-                             n                          t(n)                    t(n)/n^0.8                        t(n)/n                    t(n)/n^1.2
-(*)                      16000                        84.100                      0.036433                      0.005256                      0.000758
-(*)                      32000                       182.180                      0.045329                      0.005693                      0.000715
-(*)                      64000                       311.310                      0.044489                      0.004864                      0.000532
-                        128000                       650.000                      0.053351                      0.005078                      0.000483
-                        256000                      1212.000                      0.057136                      0.004734                      0.000392
-                        512000                      2554.000                      0.069152                      0.004988                      0.000360
-                       1024000                      4881.000                      0.075905                      0.004767                      0.000299
+                             n                          t(n)                    t(n)/n^0.8                        t(n)/n                 t(n)/n*log(n)
+(*)                        500                         4.790                      0.033202                      0.009580                      0.059536
+(*)                       1000                         7.130                      0.028385                      0.007130                      0.049252
+(*)                       2000                        13.360                      0.030548                      0.006680                      0.050774
+(*)                       4000                        26.480                      0.034775                      0.006620                      0.054907
+(*)                       8000                        46.720                      0.035240                      0.005840                      0.052485
+(*)                      16000                        72.430                      0.031378                      0.004527                      0.043822
+(*)                      32000                       188.420                      0.046882                      0.005888                      0.061080
+(*)                      64000                       341.810                      0.048847                      0.005341                      0.059104
+                        128000                       606.000                      0.049740                      0.004734                      0.055675
+                        256000                      1213.000                      0.057183                      0.004738                      0.059005
+                        512000                      2546.000                      0.068935                      0.004973                      0.065371
+                       1024000                      4774.000                      0.074241                      0.004662                      0.064520
+
 Con estos tiempos comprobamos al igual que anteriormente, que la cota subestimada crece y la cota sobreestimada decrece, tal y como deberían.
 La cota ajustada se mantiene también relativamente constante en 0.005.
 
