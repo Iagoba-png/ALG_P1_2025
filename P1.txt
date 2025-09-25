@@ -1,0 +1,87 @@
+Informe Práctica 1 Algoritmos
+
+Xoel Queiro Lema
+Iago Bescansa Alcoba
+Raquel Varela Romaní
+
+Grupo 1.3
+
+25/09/2025
+*****************************************
+
+Para esta práctica se nos proporcionaron dos algoritmos distintos para resolver el problema de la suma de la subsecuencia máxima. => Encontrar, dado de un array de números, la suma más grande que se puede obtener sumando elementos consecutivos.
+El objetivo es determinar cuál es más eficiente midiendo sus tiempos de ejecución para vectores de diferentes tamaños.
+
+La máquina utilizada para la realización de esta fue:
+
+Hardware: HP HP Pavilion x360 Convertible 14-dy1xxx 
+RAM: 16,0 GiB
+Procesador: 11th Gen Intel® Core™ i7-1195G7 CPU @ 2.90GHz × 8
+SO: Ubuntu 22.04.5 LTS
+
+*****************************************
+
+Mediante dos test en los que probamos ambos algoritmos, concluímos con que el funcionamiento era el correcto, por lo que pasamos a medir tiempos de ejecución (en microsegundos) y compararlos.
+En el programa hemos implementado cuatro ejecuciones para sacar unas mejores mediciones.
+Hemos puesto (*) para señalar cuando una medición da menos de 500 microsegundos y entra en un bucle de 100 iteraciones.
+
+**** TEST 1 ****
+                                          sumaSubMax1    sumaSubMax2
+{   -9     2    -5    -4     6   }              6               6
+{    4     0     9     2     5   }             20              20
+{   -2    -1    -9    -7    -1   }              0               0
+{    9    -2     1    -7    -8   }              9               9
+{   15    -2    -5    -4    16   }             20              20
+{    7    -5     6     7    -7   }             15              15
+
+**** TEST 2 ****
+                                                                   sumaSubMax1    sumaSubMax2
+{   -7     5    -4     3     8     2    -9    -6     0   }             14              14
+{   -3     2     4     2     6    -1    -3     3    -3   }             14              14
+{   -8    -3    -3    -4    -2     4     2    -8     9   }              9               9
+{   -8    -2     1    -8    -2    -7    -3    -9     7   }              7               7
+{    5    -9    -8    -4    -6     0     9     2    -4   }             11              11
+{   -5     8     5     1    -9     9     4    -7    -6   }             18              18
+{   -5     4    -4    -6     2     3     4     4    -9   }             13              13
+{    3     7     8     1     0     5    -1     2     9   }             34              34
+{    8    -2    -2    -9     2    -3     2     9    -6   }             11              11
+
+
+Para el primer algortimos SumaSubMax1 hemos utilizado: la función f(n) = t(n)/n^2 como cota ajustada; la función f(n) = t(n)/n^1.8 para la cota subestimada; 
+y la función f(n) = t(n)/n^2.2 para la cota sobreestimada.
+
+SumaSubMax 1
+                             n                          t(n)                    t(n)/n^1.8                      t(n)/n^2                    t(n)/n^2.2
+                           500                       750.000                      0.010397                      0.003000                      0.000866
+                          1000                      2983.000                      0.011876                      0.002983                      0.000749
+                          2000                     11576.000                      0.013234                      0.002894                      0.000633
+                          4000                     47766.000                      0.015682                      0.002985                      0.000568
+                          8000                    188694.000                      0.017791                      0.002948                      0.000489
+                         16000                    732840.000                      0.019842                      0.002863                      0.000413
+                         32000                   2930977.000                      0.022790                      0.002862                      0.000359
+                         
+Con estos tiempos podemos comprobar como la cota subestimada tiene un valor ligeramente creciente y la cota sobreestimada decreciente. 
+La cota ajustada se mantiene relativamente constante en 0.0029
+
+
+Para el segundo algoritmo SumaSubMax2, hemos realizado el mismo procedimiento, sacamos las funciones de las cotas, calculamos tiempos y comparamos.
+En este caso hemos utilizado: la función f(n) = t(n)/n para la cota ajustada; la función f(n) = t(n)/n^0.8 para la cota subestimada;
+y la función f(n) = t(n)/n^1.2 para cota sobreestimada.
+
+SumaSubMax 2
+                             n                          t(n)                    t(n)/n^0.8                        t(n)/n                    t(n)/n^1.2
+(*)                      16000                        84.100                      0.036433                      0.005256                      0.000758
+(*)                      32000                       182.180                      0.045329                      0.005693                      0.000715
+(*)                      64000                       311.310                      0.044489                      0.004864                      0.000532
+                        128000                       650.000                      0.053351                      0.005078                      0.000483
+                        256000                      1212.000                      0.057136                      0.004734                      0.000392
+                        512000                      2554.000                      0.069152                      0.004988                      0.000360
+                       1024000                      4881.000                      0.075905                      0.004767                      0.000299
+Con estos tiempos comprobamos al igual que anteriormente, que la cota subestimada crece y la cota sobreestimada decrece, tal y como deberían.
+La cota ajustada se mantiene también relativamente constante en 0.005.
+
+Para el algoritmo SumaSubMax2 hemos utilizado valores de n mucho más altos que para SumaSubMax1 porque este segundo algoritmo es mucho más eficiente.
+SumaSubMax1 tiene complejidad O(n²), por lo que el tiempo crece muy rápido al aumentar n. Mientras que SumaSubMax2 tiene complejidad lineal O(n), por lo que sus tiempo crecen más lentamente.
+
+En resumen, SumaSubMax2 es más eficiente y escalable, mientras que SumaSubMax1 puede ser útil para vectores pequeños debido a su crecimiento cuadrático en tiempo de ejecución.
+
