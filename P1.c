@@ -198,13 +198,13 @@ void showTime2(){
 
     printf("SumaSubMax 2\n");
     printf("%30s%30s%30s%30s%30s\n","n","t(n)","t(n)/n^0.8",
-            "t(n)/n","t(n)/n^1.2");
-    for(n = 16000; n <= 1024000; n = 2 * n){
+            "t(n)/n","t(n)/n*log(n)");
+    for(n = 500; n <= 1024000; n = 2 * n){
         t = calcularTiempo(n,&repeat,sumaSubMax2);
         //cálculo de relación tiempo/cotas
         cotainf = t / pow(n, 0.8);
         cota = t / n;
-        cotasob = t / pow(n, 1.2);
+        cotasob = t / n * log(n);
         if(repeat == true){ 
             //mostramos (*) si los tiempos no superan el umbral de confianza
             printf("(*)%27d%30.3lf%30lf%30lf%30lf\n",
