@@ -1,5 +1,6 @@
-Para compilación y ejecución:
+Para compilación y ejecución:  
 
--> gcc P1.c -Wall -Wextra (-lm si estás en linux)
--> ./a.out   (ejecución)
--> valgrind --leak-check=full ./a.out     (Ayuda a encontrar fugas de memoria, accesos inválidos y problemas de gestión de memoria)
+- Compilar: `gcc P1.c -Wall -Wextra (-lm si estás en Linux)`  
+- Ejecutar: `./a.out`  
+- Analizar memoria: `valgrind --leak-check=full ./a.out`    
+  (Ayuda a encontrar fugas de memoria, accesos inválidos y problemas de gestión de memoria)  
