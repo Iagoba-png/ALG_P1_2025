@@ -82,12 +82,14 @@ SumaSubMax 2
                         256000                      1213.000                      0.057183                      0.004738                      0.059005
                         512000                      2546.000                      0.068935                      0.004973                      0.065371
                        1024000                      4774.000                      0.074241                      0.004662                      0.064520
-
+                                                                                                              
 Con estos tiempos comprobamos al igual que anteriormente, que la cota subestimada crece y la cota sobreestimada decrece, tal y como deberían.
-La cota ajustada se mantiene también relativamente constante en 0.005.
+La cota ajustada se mantiene también relativamente constante en 0.005. Para esta cota existen valores anómalos debido a que los tiempos de ejecución del principio son tan pequeños que otros procesos pueden influir en el resultado.
+Cuando los vectores son grandes, los tiempos aumentan y se ve claramente que el algoritmo se estabiliza correctamente.
+
 
 Para el algoritmo SumaSubMax2 hemos utilizado valores de n mucho más altos que para SumaSubMax1 porque este segundo algoritmo es mucho más eficiente.
-SumaSubMax1 tiene complejidad O(n²), por lo que el tiempo crece muy rápido al aumentar n. Mientras que SumaSubMax2 tiene complejidad lineal O(n), por lo que sus tiempo crecen más lentamente.
+SumaSubMax1 tiene complejidad O(n²), por lo que el tiempo crece muy rápido al aumentar n. Mientras que SumaSubMax2 tiene complejidad lineal O(n), por lo que sus tiempos crecen más lentamente.
 
 En resumen, SumaSubMax2 es más eficiente y escalable, mientras que SumaSubMax1 puede ser útil para vectores pequeños debido a su crecimiento cuadrático en tiempo de ejecución.
 
